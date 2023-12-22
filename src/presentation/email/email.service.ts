@@ -2,10 +2,15 @@ import nodemailer from "nodemailer";
 import { envs } from "../../config/plugins/envs.plugin";
 
 interface SendMailOptions {
-    to: string;
+    to: string | string[];
     subject: string;
     htmlBody: string;
-    // attachments:
+    attachments?: Attachment[];
+}
+
+interface Attachment {
+    filename: string;
+    path: string;
 }
 
 export class EmailService {
@@ -19,17 +24,40 @@ export class EmailService {
     });
 
     async sendEmail(options: SendMailOptions): Promise<boolean> {
-        const { to, subject, htmlBody } = options;
+        const { to, subject, htmlBody, attachments = [] } = options;
         try {
             const sentInformation = await this.transporter.sendMail({
                 to,
                 subject,
                 html: htmlBody,
+                attachments
             })
-            
+
             return true;
         } catch (error) {
             return false;
         }
+    }
+
+    sendEmailWithFileSystemLogs(to: string | string[]) {
+        const subject = 'Server Logs';
+        const htmlBody = `
+            <h3>NOC</h3>
+            <p>lorem ipsum dolor rae</p>
+        `;
+
+        const attachments:Attachment[] = [
+            { filename: 'logs-low.log', path: './logs/logs-low.log'},
+            { filename: 'logs-medium.log', path: './logs/logs-medium.log'},
+            { filename: 'logs-high.log', path: './logs/logs-high.log'},
+        ];
+
+        this.sendEmail({
+            to,
+            subject,
+            htmlBody,
+            attachments,
+        })
+
     }
 }

@@ -13,15 +13,18 @@ export class Server {
     public static start() {
         console.log("Server running...!");
 
-        const emailService = new EmailService();
-        emailService.sendEmail({
-            to: envs.MAILER_EMAIL_TO,
-            subject: 'System Logs',
-            htmlBody: `
-                <h3>NOC</h3>
-                <p>lorem ipsum dolor rae</p>
-            `,
-        });
+        // ? Email service
+        // const emailService = new EmailService();
+        // emailService.sendEmail({
+        //     to: envs.MAILER_EMAIL_TO,
+        //     subject: 'System Logs',
+        //     htmlBody: `
+        //         <h3>NOC</h3>
+        //         <p>lorem ipsum dolor rae</p>
+        //     `,
+        // });
+
+        // emailService.sendEmailWithFileSystemLogs(envs.MAILER_EMAIL_TO);
 
         CronService.createJob(
             '*/5 * * * * *',
