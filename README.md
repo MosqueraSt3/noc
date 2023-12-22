@@ -20,9 +20,10 @@ This educational console application simulates a Network Operations Center (NOC)
 ## Usage
 1. Clone this repository: `git clone https://github.com/MosqueraSt3/noc.git`
 2. Install dependencies: `npm install`
-3. Compile TypeScript files: `npm run build`
-4. Run tests: `npm test`
-5. Start the application: `npm start`
+3. Configure the environment variables
+4. Compile TypeScript files: `npm run build`
+5. Run tests: `npm test`
+6. Start the application: `npm start`
 
 ## Technologies & Dependencies
 - **Node.js:** Runtime environment for executing JavaScript code.
