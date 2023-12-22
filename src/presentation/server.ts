@@ -14,7 +14,7 @@ export class Server {
         console.log("Server running...!");
 
         // ? Email service
-        // const emailService = new EmailService();
+        // const emailService = new EmailService(fileSystemLogRepository);
         // emailService.sendEmail({
         //     to: envs.MAILER_EMAIL_TO,
         //     subject: 'System Logs',
