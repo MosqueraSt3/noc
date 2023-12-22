@@ -1,5 +1,6 @@
 import { envs } from "../config/plugins/envs.plugin";
 import { CheckService } from "../domain/use-cases/checks/check-service";
+import { SendEmailLogs } from "../domain/use-cases/email/send-email-logs";
 import { FileSystemDataSource } from "../infrastructure/datasources/file-system.datasource";
 import { LogRepositoryImpl } from "../infrastructure/repositories/log.repository.impl";
 import { CronService } from "./cron/cron.service";
@@ -9,22 +10,15 @@ const fileSystemLogRepository = new LogRepositoryImpl(
     new FileSystemDataSource(),
 );
 
+const emailService = new EmailService();
+
 export class Server {
     public static start() {
         console.log("Server running...!");
 
-        // ? Email service
-        // const emailService = new EmailService(fileSystemLogRepository);
-        // emailService.sendEmail({
-        //     to: envs.MAILER_EMAIL_TO,
-        //     subject: 'System Logs',
-        //     htmlBody: `
-        //         <h3>NOC</h3>
-        //         <p>lorem ipsum dolor rae</p>
-        //     `,
-        // });
+        // new SendEmailLogs(emailService, fileSystemLogRepository)
+        //     .execute(envs.MAILER_EMAIL_TO);
 
-        // emailService.sendEmailWithFileSystemLogs(envs.MAILER_EMAIL_TO);
 
         CronService.createJob(
             '*/5 * * * * *',
