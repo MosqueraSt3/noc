@@ -1,7 +1,7 @@
 import { Server } from './presentation/server';
 
 (async () => {
-    await main();
+    main();
 })();
 
 function main() {
