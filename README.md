@@ -1,13 +1,13 @@
 # Network Operations Center (NOC) Console App
 
 ## Description
-This educational console application simulates a Network Operations Center (NOC) environment. It's built using Node.js and TypeScript, implementing Clean Architecture principles. The app integrates various data sources such as MongoDB, PostgreSQL, and file storage using Node.js `fs` module. It includes Jest and Supertest for testing and email functionality for notifications.
+This educational console application simulates a Network Operations Center (NOC) environment. It's built using Node.js and TypeScript, implementing Clean Architecture principles. The app integrates various data sources such as MongoDB, PostgreSQL, and file storage using Node.js `fs` module. It includes Jest and Supertest for testing, email functionality for notifications, and is containerized with Docker.
 
 ## Key Features
 - **NOC Simulation:** Emulates a simplified Network Operations Center scenario.
 - **Clean Architecture:** Organizes the codebase following Clean Architecture principles for modularity and scalability.
 - **Multiple Data Sources:** Utilizes MongoDB, PostgreSQL, and file storage (with `fs`) for different data storage scenarios.
-- **Educational Purpose:** Ideal for learning Node.js, TypeScript, Clean Architecture concepts, testing, and email integration.
+- **Educational Purpose:** Ideal for learning Node.js, TypeScript, Clean Architecture concepts, testing, email integration, and Docker.
 
 ## Functionality
 - **Node.js & TypeScript:** Development carried out using Node.js with TypeScript for static typing.
@@ -16,6 +16,7 @@ This educational console application simulates a Network Operations Center (NOC)
 - **File System (fs) Usage:** Includes data storage and retrieval through file handling using Node.js `fs` module.
 - **Jest & Supertest:** Includes comprehensive testing with Jest and Supertest for API testing.
 - **Email Notifications:** Utilizes email functionality for notifications using a suitable Node.js library.
+- **Dockerize Application:** Easily run the app using Docker containers for seamless deployment.
 
 ## Usage
 1. Clone this repository: `git clone https://github.com/MosqueraSt3/noc.git`
@@ -33,6 +34,7 @@ This educational console application simulates a Network Operations Center (NOC)
 - **fs Module:** Node.js module for file system operations.
 - **Jest & Supertest:** Testing frameworks for comprehensive testing.
 - **Email Functionality:** Suitable Node.js library for email notifications.
+- **Docker:** Containerization for easy deployment and management.
 
 ## Directory Structure
 - **src/:** Contains the TypeScript source code.
